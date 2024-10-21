@@ -43,14 +43,14 @@ class App extends Component {
 
     return (
       <div>       
-        {/* <h1>My First React App!</h1>
+        {/* //Example1: <h1>My First React App!</h1>
         <Products /> */}
 
-        {/* <Products />
+        {/* //Example2: <Products />
         <Products /> */}
 
          <h1> Hello there, {this.formatName(user)} ! </h1>
-         
+
       <Products />
      </div>
     
