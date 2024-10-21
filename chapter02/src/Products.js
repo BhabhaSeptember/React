@@ -8,8 +8,8 @@ class Products extends Component {
     ));
     return (
       <div>
-        {/* <h2>Products</h2> */}
-        {/* <h2>Courses</h2> */}
+        {/* //Example1: <h2>Products</h2> */}
+        {/* //Example2: <h2>Courses</h2> */}
 
         <ul>{listProducts}</ul>
 
