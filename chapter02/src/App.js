@@ -31,6 +31,7 @@ import Products from "./Products";
 
 class App extends Component {
 
+  //Example3: 
   formatName (user) {
     return user.firstName + ' ' + user.lastName;
   }
