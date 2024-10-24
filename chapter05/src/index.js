@@ -1,17 +1,10 @@
-//Library for creating views
-import React from 'react'; 
-
-//Library used to render the UI in the browser
-import ReactDOM from 'react-dom/client'; 
-
-import './index.css'; 
-
-//Importing the App component
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-//Render the 'App' React element into the root DOM node
 root.render(
   <React.StrictMode>
     <App />
