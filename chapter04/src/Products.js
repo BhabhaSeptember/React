@@ -46,6 +46,7 @@ class Products extends Component {
   }
 
   render() {
+    //Returns Product component with product data object 
     const listProducts = this.products.map((product) => 
        <Product key={product.productName} data={product} />
     );

@@ -18,7 +18,7 @@ class Product extends Component {
             Aenean porttitor, tellus laoreet venenatis facilisis, enim ex faucibus nulla, id 
             rutrum ligula purus sit amet mauris.`,
         rating: 4,
-        numOfReviews: 2,
+        numOfReviews: 17,
       },
       {
         imageUrl: "http://loremflickr.com/150/150?random=2",
@@ -38,7 +38,7 @@ class Product extends Component {
             Aenean porttitor, tellus laoreet venenatis facilisis, enim ex faucibus nulla, id 
             rutrum ligula purus sit amet mauris. `,
         rating: 5,
-        numOfReviews: 2,
+        numOfReviews: 22,
       },
     ];
   }
@@ -46,11 +46,11 @@ class Product extends Component {
   render() {
     return (
       <div>
+        {/* //Card Object */}
         <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.data.imageUrl} />
-          
+          <Card.Img variant="top" src={this.props.data.imageUrl} />         
           <Card.Body>
-            <h5>{this.props.data.productName}</h5>
+            <h2>{this.props.data.productName}</h2>
             {this.props.data.releasedDate}
             <Rating
               rating={this.props.data.rating}
