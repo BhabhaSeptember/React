@@ -57,11 +57,7 @@ class Products extends Component {
        */}
        
         {/* // Example2: Inline 'If-else' with Conditional Operator  */}
-        {listProducts.length > 0 ? (
-          <ul>{listProducts}</ul>
-        ) : (
-          <ul>No Products to display</ul>
-        )}
+        {listProducts.length > 0 ? ( <ul>{listProducts}</ul> ) : ( <ul>No Products to display</ul> )}
       </div>
     );
   }
