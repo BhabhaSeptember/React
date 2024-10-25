@@ -18,7 +18,7 @@ class App extends Component {
         <JumbotronComponent>
           Inserting content into Jumbotron Component from the outside using
           "this.props.children"...
-    </JumbotronComponent>
+        </JumbotronComponent>
       </div>
     );
   }
