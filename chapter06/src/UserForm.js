@@ -8,20 +8,35 @@ class UserForm extends Component {
   render() {
     return (
       <div>
-        <h1>Any place in your app!</h1>
+        <h1>User Form!</h1>
+        <hr></hr>
         <Formik
           initialValues={{ email: "", password: "" }}
-          validate={(values) => {
+          
+          //Validate forms values
+         validate={(values) => {
             let errors = {};
+
+            //Check if there is an email input
             if (!values.email) {
-              errors.email = "Required";
-            } else if (
+              errors.email = "Email is required!";
+            } else if ( //Test if email is valid according to regex exp
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
               errors.email = "Invalid email address";
-            }
+            } else if (values.email.length < 10) {
+              errors.email = 'Email address too short';
+              }
+              if (!values.password) {
+                errors.password = 'Password is required';
+                }
+                else if (values.password.length < 8) {
+                errors.password = 'Password must be atleast 8 characters';
+                } 
+             
             return errors;
           }}
+          //Alert box shows submitted form values in a JSON object
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
@@ -31,13 +46,19 @@ class UserForm extends Component {
         >
           {({ isSubmitting }) => (
             <Form>
-              <Field type="email" name="email" />
+              <Field type="email" name="email" placeholder="Email" />
+              <span style={{ color:"red", fontWeight: "bold" }}>
               <ErrorMessage name="email" component="div" />
-              <Field type="password" name="password" />
+              </span>
+              <br></br>
+              <br></br>
+              <Field type="password" name="password" placeholder="Password"/>
+              <span style={{ color:"red", fontWeight: "bold" }}>
               <ErrorMessage name="password" component="div" />
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
+              </span>
+              <br></br>
+              <br></br>
+              <button type="submit" disabled={isSubmitting}>Submit</button>
             </Form>
           )}
         </Formik>

@@ -12,10 +12,11 @@ class JumboTronComponent extends Component {
       <div>
         <Jumbotron>
           <h1>Hello, world!</h1>
-          {/* // EXAMPLE 1 : 
-          <p>
+          {/* // EXAMPLE 1 :  */}
+          {/* <p>
             This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information.
+            calling extra attention to featured content or information by 
+            extending the entire viewport.
           </p> */}
 
           {/* //EXAMPLE 2 : */}
