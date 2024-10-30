@@ -20,7 +20,7 @@ class GitHub extends Component {
 
     //Best practice: constructors should not contain costly operations e.g. calling server in constructor
     //EXAMPLE1:
-    // this.getGitHubData("greg");
+    // this.getGitHubData("bhabha");
   }
   //===============================METHODS===============================
   //EXAMPLE2:
