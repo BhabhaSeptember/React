@@ -1,39 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-import Products from './Products';
-
-function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
-};
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Products from "./Products";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
+import Rating from './Rating';
 
 function App() {
-
-  const user  = {
-    firstName : 'Bhabha',
-    lastName : 'September',
-    imageUrl: 'https://picsum.photos/200/300'
-  };
+  // const isValid = true;
+  // const isValid = false;
 
   return (
     <div className="App">
       {/* =====- EXAMPLE1: -===== */}
-      {/* Learn React Hooks
-
-      <Products />
-      <Products />
-      <Products /> */}
+      {/* <Products />
+      <Button variant="success" disabled={!isValid}>
+        Default
+      </Button> */}
 
       {/* =====- EXAMPLE2: -===== */}
-      {/* <h1>
-        Hello there, {formatName(user)} ! 👋😊
-        <br/>
-        <img src={user.imageUrl}></img>
-      </h1> */}
+{/* React calling Rating component with {rating: '1'} as props object */}
+      <Rating rating='1' />
+      <Rating rating='2' />
+      <Rating rating='3' />
+      <Rating rating='4' />
+      <Rating rating='5' />
 
-      {/* =====- EXAMPLE3: -===== */}
-      <Products />
+
+
+
     </div>
   );
 }
 
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Products />
+//         <Button variant="success" disabled>Default</Button>
+//       </div>
+//     );
+//   }
+// }
 export default App;
