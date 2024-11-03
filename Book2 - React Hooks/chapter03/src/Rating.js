@@ -21,7 +21,9 @@ function Rating(props) {
             {props.rating >= 5 ? (<IoIosStar/>) : (<IoIosStarOutline/>)} */}
 
       {/* ========== EXAMPLE2: ========== */}
-      <h1>Rating: {rating}</h1>
+      <h1>Click a star to make your rating</h1>
+      <hr/>
+      <h3>Rating: {rating}</h3>
       {rating >= 1 ? <IoIosStar onClick={()=> setRating(1)}/> : <IoIosStarOutline onClick={()=> setRating(1)}/>}
       {rating >= 2 ? <IoIosStar onClick={()=> setRating(2)}/> : <IoIosStarOutline onClick={()=> setRating(2)}/>}
       {rating >= 3 ? <IoIosStar onClick={()=> setRating(3)}/> : <IoIosStarOutline onClick={()=> setRating(3)}/>}
