@@ -9,13 +9,14 @@ function Rating(props) {
     
       
       <div style={styles.starStyle}>
-      <hr/>
+    
       <h3>Rating: {rating}</h3>
-      {rating >= 1 ? <IoIosStar onClick={()=> setRating(1)}/> : <IoIosStarOutline onClick={()=> setRating(1)}/>}
+      {/* {rating >= 1 ? <IoIosStar onClick={()=> setRating(1)}/> : <IoIosStarOutline onClick={()=> setRating(1)}/>}
       {rating >= 2 ? <IoIosStar onClick={()=> setRating(2)}/> : <IoIosStarOutline onClick={()=> setRating(2)}/>}
       {rating >= 3 ? <IoIosStar onClick={()=> setRating(3)}/> : <IoIosStarOutline onClick={()=> setRating(3)}/>}
       {rating >= 4 ? <IoIosStar onClick={()=> setRating(4)}/> : <IoIosStarOutline onClick={()=> setRating(4)}/>}
-      {rating >= 5 ? <IoIosStar onClick={()=> setRating(5)}/> : <IoIosStarOutline onClick={()=> setRating(5)}/>}
+      {rating >= 5 ? <IoIosStar onClick={()=> setRating(5)}/> : <IoIosStarOutline onClick={()=> setRating(5)}/>} */}
+      <p>Reviews: {props.numOfReviews} </p>
       </div>
   
   );
