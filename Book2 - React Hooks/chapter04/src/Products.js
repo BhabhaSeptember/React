@@ -12,7 +12,7 @@ function Products() {
      Aenean porttitor, tellus laoreet venenatis facilisis, enim ex faucibus nulla, id
      rutrum ligula purus sit amet mauris. `, 
       rating: 4,
-      numOfReviews: 2
+      numOfReviews: 20
       },
       {
       imageUrl: "http://loremflickr.com/150/150?random=2",
@@ -32,7 +32,7 @@ function Products() {
      Aenean porttitor, tellus laoreet venenatis facilisis, enim ex faucibus nulla, id
      rutrum ligula purus sit amet mauris. `, 
       rating: 5,
-      numOfReviews: 2
+      numOfReviews: 25
       }];
  }
 
