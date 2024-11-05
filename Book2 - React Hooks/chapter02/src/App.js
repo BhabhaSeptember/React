@@ -16,22 +16,26 @@ function App() {
 
   return (
     <div className="App">
-      {/* =====- EXAMPLE1: -===== */}
-      {/* Learn React Hooks
 
+      {/* =============== EXAMPLE1: =============== */}
+      
+      {/* Learn React Hooks
       <Products />
       <Products />
       <Products /> */}
 
-      {/* =====- EXAMPLE2: -===== */}
-      {/* <h1>
-        Hello there, {formatName(user)} ! 👋😊
+
+      {/*  =============== EXAMPLE2:  =============== */}
+      
+      {/* <h1>Hello there, {formatName(user)} ! 👋😊
         <br/>
         <img src={user.imageUrl}></img>
       </h1> */}
 
-      {/* =====- EXAMPLE3: -===== */}
+
+      {/*  =============== EXAMPLE3:  =============== */}
       <Products />
+
     </div>
   );
 }

@@ -3,14 +3,19 @@ import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Products from "./Products";
+import JumbotronComponent from "./JumbotronComponent";
 
 function App() {
   return (
     <div className="App">
-      <h1><u>Welcome to the Cat-Alogue!</u></h1>
-      <hr></hr>
+      {/* =============== EXAMPLE1: =============== */}
+      {/* <JumbotronComponent /> */}
 
-      <Products />
+      {/* =============== EXAMPLE2: =============== */}
+      <JumbotronComponent>
+        This is a long sentence, and I want to insert content into the jumbotron
+        component from the outside.
+      </JumbotronComponent>
     </div>
   );
 }

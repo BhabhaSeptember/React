@@ -8,12 +8,16 @@ function Products() {
 
   return (
     <div>
-      {/* =====- EXAMPLE1: -===== */}
-      {/* <h2>
-                Products
-            </h2> */}
-      {/* =====- EXAMPLE2: -===== */}
+
+      {/*  =============== EXAMPLE1: =============== */}
+      {/* <h2> Products </h2> */}
+
+
+
+      {/*  =============== EXAMPLE2: =============== */}
       <ul>{listProducts}</ul>
+
+
     </div>
   );
 }
