@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react'; //library creates views
+import ReactDOM from 'react-dom/client'; //library renders UI in browser
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
