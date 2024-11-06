@@ -7,17 +7,20 @@ import { Button } from "react-bootstrap";
 import Rating from "./Rating";
 
 function App() {
-  const isValid = true;
-  // const isValid = false;
+  // const isValid = true;
+  const isValid = false;
 
   return (
     <div className="App">
-      {/*============ EXAMPLE1: ============ */}
+      {/*====================== EXAMPLE1: ====================== */}
       {/* <h1><u>React Hooks App!</u></h1>
+      <br></br>
       <Products/>
      <Button variant="success" disabled={!isValid}>Default</Button> */}
 
-      {/*============ EXAMPLE2: ============ */}
+      {/*====================== EXAMPLE2: ====================== */}
+      <h1>Click a star to make your rating</h1>
+      <hr />
       <Rating rating="1" />
       <Rating rating="2" />
       <Rating rating="3" />

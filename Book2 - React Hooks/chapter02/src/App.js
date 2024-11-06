@@ -25,8 +25,7 @@ function App() {
       <Products /> */}
 
 
-      {/*  =============== EXAMPLE2:  =============== */}
-      
+      {/*  =============== EXAMPLE2:  =============== */}     
       {/* <h1>Hello there, {formatName(user)} ! 👋😊
         <br/>
         <img src={user.imageUrl}></img>
