@@ -6,8 +6,7 @@ function Rating(props) {
 //   const [rating, setRating] = useState(0) 
 
   return (
-    
-      
+     
       <div style={styles.starStyle}>
     
       <h3>Rating: {rating}</h3>

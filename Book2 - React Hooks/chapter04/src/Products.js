@@ -2,6 +2,8 @@ import React from "react";
 import Product from './Product';
 
 function Products() {
+
+  //Methods
  const getProducts = () => {
   return [
     {
