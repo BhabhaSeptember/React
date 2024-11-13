@@ -25,7 +25,7 @@ class GitHub extends Component {
   //===============================METHODS===============================
   //EXAMPLE2:
   //   componentDidMount() {
-  //     this.getGitHubData("september");
+  //     this.getGitHubData("bhabha");
   //   }
 
   handleChange(e) {

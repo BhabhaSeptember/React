@@ -36,9 +36,11 @@ class Header extends Component {
           <Switch>
             <Route path="/github/user/:login/:id" component={GitHubUser} /> 
             <Route path="/github" component={GitHub} />
-            <Route path="/" component={Home} />
             <Route path="/help" component={Help} />
-            <Route path="*" component={NotFound} />
+            <Route exact path="/" component={Home} />   
+            <Route path="/*" component={NotFound} />
+                  
+            
           </Switch>
         </div>
       </BrowserRouter>

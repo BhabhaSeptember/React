@@ -62,7 +62,7 @@ class GitHub extends Component {
         {/* <a href={user.html_url}> */}
         <Nav.Link href={`/github/user/${user.login}/${user.id}`}>
           <Card.Img src={user.avatar_url} alt="Generic placeholder" />
-          </Nav.Link>
+          </Nav.Link> v  
         {/* </a> */}
         <Card.Body>
           <h5>Login: {user.login}</h5>

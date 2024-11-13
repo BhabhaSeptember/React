@@ -11,6 +11,9 @@ function JumbotronComponent(props) {
 
         {/* =============== EXAMPLE1: =============== */}
         {/* <p>
+          <u>EXAMPLE1: (Inside JumbotronComponent)</u>
+          <br/>
+          <br/>
           This is a simple hero unit, a simple jumbotron-style component for
           calling extra attention to featured content or information.
         </p> */}
