@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import {app, analytics} from "./index";
+import {app, analytics} from "./index";
 import User from "./User";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import UserForm from './UserForm';
@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     //EXAMPLE1
-    // console.log({app, analytics});
+    console.log({app, analytics});
   }
 
   render() {
