@@ -13,7 +13,7 @@ function UserForm() {
 
 //Ensures page is not reloaded when contents of form are sent    
         event.preventDefault();  
-        //EMAIL VALIDATION
+        //EMAIL $ PASSWORD VALIDATION
         let emailValid = false;
         let passwordValid = false;
         if (email.length == 0) {

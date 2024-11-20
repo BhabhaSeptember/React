@@ -10,9 +10,9 @@ import RegistrationForm from "./RegistrationForm";
 function App() {
   return (
     <div  className="App">
-     {/* <UserForm/> */}
+     <UserForm/>
 
-     <RegistrationForm />
+     {/* <RegistrationForm /> */}
     </div>
   );
 }
