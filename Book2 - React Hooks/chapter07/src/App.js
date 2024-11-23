@@ -2,17 +2,13 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Products from "./Products";
-import JumbotronComponent from "./JumbotronComponent";
-import UserForm from "./UserForm";
-import RegistrationForm from "./RegistrationForm";
+import GitHub from "./GitHub";
+
 
 function App() {
   return (
     <div  className="App">
-     <UserForm/>
-
-     {/* <RegistrationForm /> */}
+     <GitHub />
     </div>
   );
 }
