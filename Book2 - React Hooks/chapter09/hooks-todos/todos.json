@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "read bible"
+    },
+    {
+      "id": "3",
+      "text": "finish redux book (by tomorrow 12:00pm)"
+    },
+    {
+      "id": "4",
+      "text": "complete tutorial 7 (by Monday 10am)"
+    },
+    {
+      "id": "5",
+      "text": "work on own react app (start on Monday)"
+    },
+    {
+      "id": "0afac51a-85a6-48b4-830f-942c9c7acb17",
+      "text": "daily afternoon jog"
+    },
+    {
+      "id": "b4ee5a7b-f946-420a-b480-9d1e62ca9339",
+      "text": "Go cycling"
+    }
+  ]
+}
