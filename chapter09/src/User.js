@@ -20,7 +20,6 @@ class User extends Component {
   //=========================================-METHODS-=========================================
 
   add(e) {
-    //Navigates user to specified target route
     this.props.history.push("/add");
   }
 
@@ -121,14 +120,16 @@ class User extends Component {
           </Modal.Header>
           <Modal.Body>
             <p>
-              Are you sure you want to delete
-              {this.state.selectedUser.username}?
+              
+              Are you sure you want to delete : 
+              {this.state.selectedUser.username}
+              
             </p>
             <hr />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.delete}>Delete</Button>
-            <Button onClick={this.closeDeleteDialog}>Close</Button>
+            <Button onClick={this.closeDeleteDialog}>Cancel</Button>
           </Modal.Footer>
         </Modal>
       </div>
