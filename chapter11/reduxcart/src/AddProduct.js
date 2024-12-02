@@ -3,10 +3,11 @@ import React, { Component } from "react";
 class AddProduct extends Component {
     state = {
         productName: '', 
-        productPrice: 0
+        productPrice: ''
     }
 
-    productNameChangedHander = (event) => {
+    productNameChangedHandler = (event) => {
+        console.log("Input Value: ", event.target.value);
         this.setState({productName: event.target.value});
     }
 
@@ -26,7 +27,7 @@ class AddProduct extends Component {
                 <input
                 type="number"
                 placeholder="Product Price"
-                onChange={this.productNameChangedHander}
+                onChange={this.productPriceChangedHandler}
                 value={this.state.productPrice}
                 />
                 <button className="buttons"

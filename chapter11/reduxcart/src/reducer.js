@@ -1,8 +1,11 @@
 function cartReducer(state, action) {
     if (state === undefined) {
         return {
-            totalCost: 0,
-            productCart: []
+            totalCost: 150,
+            productCart: [
+                { productName: "Item1", productPrice: 50},
+                {productName: "Item2", productPrice: 100}
+            ]
         };
     }
 
