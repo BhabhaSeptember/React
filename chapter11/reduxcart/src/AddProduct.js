@@ -7,7 +7,6 @@ class AddProduct extends Component {
     }
 
     productNameChangedHandler = (event) => {
-        console.log("Input Value: ", event.target.value);
         this.setState({productName: event.target.value});
     }
 
