@@ -12,7 +12,9 @@ import { useChatStore } from "./lib/chatStore";
 const App = () => {
 
   const { currentUser, isLoading, fetchUserInfo} = useUserStore();
-  const { chatId } = useChatStore;
+  // const { chatId } = useChatStore;
+  const { chatId } = useChatStore(); // Correct syntax
+
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user)=> {
