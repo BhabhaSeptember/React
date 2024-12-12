@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 
-/* =================================== TOP SECTION =================================== */
+  /* =================================== TOP SECTION =================================== */
   .top {
     padding: 20px;
     display: flex;
@@ -40,6 +40,15 @@
           font-size: 14px;
           font-weight: 300;
           color: #a5a5a5;
+        }
+        .status {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          background-color: green;
+          border-radius: 50%;
+          margin-right: 5px;
+          vertical-align: middle;
         }
       }
     }
@@ -131,7 +140,6 @@
       }
     }
   }
-
   /* =================================== BOTTOM SECTION =================================== */
 
   .bottom {
@@ -194,8 +202,6 @@
   }
 }
 
-
-
 .actions {
   display: flex;
   gap: 10px;
@@ -215,4 +221,3 @@
 .actions button:hover {
   background-color: #3a64d8;
 }
-

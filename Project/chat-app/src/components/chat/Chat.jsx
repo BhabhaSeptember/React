@@ -18,7 +18,6 @@ const Chat = () => {
   const [chat, setChat] = useState();
   const [editingMessage, setEditingMessage] = useState(null);
 
-
   // const { chatId } = useChatStore;
   const chatId = useChatStore((state) => state.chatId);
   const user = useChatStore((state) => state.user);
@@ -95,8 +94,6 @@ const Chat = () => {
         }),
       });
 
-      
-
       const userIDs = [currentUser.id, user.id];
 
       userIDs.forEach(async (id) => {
@@ -126,56 +123,50 @@ const Chat = () => {
     }
   };
 
-
   // Function to handle editing
-const handleEditMessage = (message) => {
-  setEditingMessage(message);
-  setText(message.text); // Set the text input to the message being edited
-};
+  const handleEditMessage = (message) => {
+    setEditingMessage(message);
+    setText(message.text); // Set the text input to the message being edited
+  };
 
-// Function to update the message in Firestore
-const handleUpdateMessage = async () => {
-  if (!editingMessage) return;
+  // Function to update the message in Firestore
+  const handleUpdateMessage = async () => {
+    if (!editingMessage) return;
 
-  try {
-    const updatedMessages = chat.messages.map((msg) =>
-      msg.createdAt === editingMessage.createdAt
-        ? { ...msg, text }
-        : msg
-    );
+    try {
+      const updatedMessages = chat.messages.map((msg) =>
+        msg.createdAt === editingMessage.createdAt ? { ...msg, text } : msg
+      );
 
-    await updateDoc(doc(db, "chats", chatId), {
-      messages: updatedMessages,
-    });
+      await updateDoc(doc(db, "chats", chatId), {
+        messages: updatedMessages,
+      });
 
+      setEditingMessage(null);
+      setText("");
+    } catch (error) {
+      console.error("Error updating message:", error);
+    }
+  };
+
+  const handleCancelEdit = () => {
     setEditingMessage(null);
     setText("");
-  } catch (error) {
-    console.error("Error updating message:", error);
-  }
-};
+  };
 
-const handleCancelEdit = () => {
-  setEditingMessage(null);
-  setText("");
-};
+  const handleDeleteMessage = async (message) => {
+    try {
+      const updatedMessages = chat.messages.filter(
+        (msg) => msg.createdAt !== message.createdAt
+      );
 
-
-
-const handleDeleteMessage = async (message) => {
-  try {
-    const updatedMessages = chat.messages.filter(
-      (msg) => msg.createdAt !== message.createdAt
-    );
-
-    await updateDoc(doc(db, "chats", chatId), {
-      messages: updatedMessages,
-    });
-  } catch (error) {
-    console.error("Error deleting message:", error);
-  }
-};
-
+      await updateDoc(doc(db, "chats", chatId), {
+        messages: updatedMessages,
+      });
+    } catch (error) {
+      console.error("Error deleting message:", error);
+    }
+  };
 
   return (
     <div className="chat">
@@ -185,7 +176,10 @@ const handleDeleteMessage = async (message) => {
           <img src={user?.avatar || "./login-avatar.jpg"} alt="" />
           <div className="texts">
             <span>{user?.username}</span>
-            <p><i>Online</i></p>
+            <p>
+              <span className="status"></span>
+              <i>Online</i>
+            </p>
           </div>
         </div>
         <div className="icons">
@@ -231,6 +225,45 @@ const handleDeleteMessage = async (message) => {
         <div ref={endRef}></div>
       </div>
 
+      {/* //---------------- */}
+
+      {/* <div className="center">
+        {chat?.messages?.map((message) => (
+          <div
+            className={
+              message.senderId === currentUser?.id ? "message-own" : "message"
+            }
+            key={message?.createdAt}
+          >
+            <div className="texts">
+              {message.img && (
+                <img src={message.img || "./busy-office-image.png"} alt="" />
+              )}
+              <p>{message.text}</p>
+              <div className="actions">
+                {message.senderId === currentUser.id && (
+                  <>
+                    <img
+                      src="./edit-icon.png"
+                      alt="Edit"
+                      onClick={() => handleEditMessage(message)}
+                    />
+                    <img
+                      src="./delete-icon.png"
+                      alt="Delete"
+                      onClick={() => handleDeleteMessage(message)}
+                    />
+                  </>
+                )}
+              </div>
+
+              <span>2 min ago</span>
+            </div>
+          </div>
+        ))}
+        <div ref={endRef}></div>
+      </div> */}
+
       {/* ============================= BOTTOM SECTION =============================*/}
 
       <div className="bottom">
@@ -264,20 +297,20 @@ const handleDeleteMessage = async (message) => {
 
         {editingMessage ? (
           <div>
-          <button className="sendButton" onClick={handleUpdateMessage}>
-            Update
+            <button className="sendButton" onClick={handleUpdateMessage}>
+              Update
+            </button>
+            <button onClick={handleCancelEdit}>Cancel</button>
+          </div>
+        ) : (
+          <button
+            className="sendButton"
+            onClick={handleSend}
+            disabled={isCurrentUserBlocked || isReceiverBlocked}
+          >
+            Send
           </button>
-          <button onClick={handleCancelEdit}>Cancel</button>
-        </div>
-      ) : (
-        <button
-          className="sendButton"
-          onClick={handleSend}
-          disabled={isCurrentUserBlocked || isReceiverBlocked}
-        >
-          Send
-        </button>
-  )}
+        )}
       </div>
     </div>
   );
