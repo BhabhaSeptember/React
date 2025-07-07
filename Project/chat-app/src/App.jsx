@@ -5,19 +5,22 @@ import List from "./components/list/List";
 import Login from "./components/login/Login";
 import Notification from "./components/notification/Notification";
 import { onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "./lib/firebase";
 import { useUserStore } from "./lib/userStore";
 import { useChatStore } from "./lib/chatStore";
 
 const App = () => {
-
-  const { currentUser, isLoading, fetchUserInfo} = useUserStore();
+  const { currentUser, isLoading, fetchUserInfo } = useUserStore();
   // const { chatId } = useChatStore;
   const { chatId } = useChatStore(); // Correct syntax
 
-
   useEffect(() => {
-    const unSub = onAuthStateChanged(auth, (user)=> {
+    signOut(auth).then( ()=> {
+      console.log("Signed out for clean test");
+    });
+    const unSub = onAuthStateChanged(auth, (user) => {
+      console.log("Auth state changed, user: ", user);
       fetchUserInfo(user?.uid);
     });
 
@@ -26,24 +29,21 @@ const App = () => {
     };
   }, [fetchUserInfo]);
 
-  if (isLoading) return <div className="loading">Loading...</div>
+  if (isLoading) return <div className="loading">Loading...</div>;
 
   return (
     <div className="container">
       {currentUser ? (
         <>
           <List />
-          { chatId && <Chat />}
-          { chatId && <Detail />}
+          {chatId && <Chat />}
+          {chatId && <Detail />}
         </>
       ) : (
         <Login />
       )}
 
       <Notification />
-
-      
-
     </div>
   );
 };

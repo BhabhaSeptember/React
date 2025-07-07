@@ -1,9 +1,19 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "./login.css";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
-import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -28,45 +38,80 @@ const Login = () => {
     setLoading(true);
 
     const formData = new FormData(e.target);
-    const {username, email, password } = Object.fromEntries(formData);
+    const { username, email, password } = Object.fromEntries(formData);
 
-   //Validations
-    if (!username || !email || !password)
-      return toast.warn("Please enter inputs!");
+    //Validations
+    if (!username || !email || !password) {
+      toast.warn("Please enter inputs!");
+      setLoading(false);
+      return;
+    }
 
-
-    
     const usersRef = collection(db, "users");
     const q = query(usersRef, where("username", "==", username));
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
-      return toast.warn("Select another username");
+      toast.warn("Select another username");
+      setLoading(false);
+      return;
     }
 
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
+      // await createUserWithEmailAndPassword(
+      //   auth,
+      //   "test@email.com",
+      //   "testpassword"
+      // );
+      console.log("Registering: ", username, email);
+      // Wait a bit to ensure auth state updated
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      await setDoc(doc(db, "users", res.user.uid), {
+      const user = auth.currentUser;
+      if (!user) {
+        toast.error("User authentication failed after registration.");
+        setLoading(false);
+        return;
+      }
+      //================================================================
+      await setDoc(doc(db, "users", user.uid), {
         username,
         email,
-        id: res.user.uid,
+        id: user.uid,
         blocked: [],
       });
 
-      await setDoc(doc(db, "userchats", res.user.uid), {
+      await setDoc(doc(db, "userchats", user.uid), {
         chats: [],
       });
+
       toast.success("Welcome to the Chat-App!");
-  
     } catch (error) {
       console.log(error);
       toast.error(error.message);
-    }finally {
+    } finally {
       setLoading(false);
     }
+    //================================================================
+    //   await setDoc(doc(db, "users", res.user.uid), {
+    //     username,
+    //     email,
+    //     id: res.user.uid,
+    //     blocked: [],
+    //   });
+
+    //   await setDoc(doc(db, "userchats", res.user.uid), {
+    //     chats: [],
+    //   });
+    //   toast.success("Welcome to the Chat-App!");
+    // } catch (error) {
+    //   console.log(error);
+    //   toast.error(error.message);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
-  
   //============================ HANDLE LOGIN ============================
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -74,10 +119,11 @@ const Login = () => {
 
     const formData = new FormData(e.target);
     const { email, password } = Object.fromEntries(formData);
-    
+
     try {
+      console.log(email, password);
       await signInWithEmailAndPassword(auth, email, password);
-    } catch(error) {
+    } catch (error) {
       console.log(error);
       toast.error(error.message);
     } finally {
@@ -92,7 +138,9 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <input type="email" placeholder="Email" name="email" />
           <input type="password" placeholder="Password" name="password" />
-          <button disable={loading}>{loading ? "Loading..." : "Sign In"}</button>
+          <button disabled={loading}>
+            {loading ? "Loading..." : "Sign In"}
+          </button>
         </form>
       </div>
       <div className="separator"></div>
@@ -112,7 +160,9 @@ const Login = () => {
           <input type="text" placeholder="Username" name="username" />
           <input type="email" placeholder="Email" name="email" />
           <input type="password" placeholder="Password" name="password" />
-          <button disable={loading} >{loading ? "Loading..." : "Sign Up"}</button>
+          <button disabled={loading}>
+            {loading ? "Loading..." : "Sign Up"}
+          </button>
         </form>
       </div>
     </div>
